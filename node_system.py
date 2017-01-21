@@ -23,7 +23,7 @@ class Nodes:
         print('\nLinked nodes:\n')
         try:
             for i in self.list_connections[node_id]:
-                print('%s : %s' % (i, self.list_names[i]))
+                print('%s : %s' % (str(i), str(self.list_names[i])))
         except KeyError:
             print('Something went wrong on the map makers side...')
         print('')
@@ -40,8 +40,27 @@ class Nodes:
             return True
         return False
 
-    def link(self):
-        pass
+    def link(self, node_id):
+        node_id = str(node_id)
+        try:
+            if self.list_connect_points[node_id] >= 1:
+                if self.list_connect_points[self.current_node] >= 1:
+                    if node_id[0] == self.current_node[0] or node_id[1] == self.current_node[1]:
+                        self.list_connections[node_id].add(self.current_node)
+                        self.list_connections[self.current_node].add(node_id)
+                        self.list_connect_points[node_id] -= 1
+                        self.list_connect_points[self.current_node] -= 1
+        except KeyError:
+            pass
 
-    def unlink(self):
-        pass
+    def unlink(self, node_id):
+        node_id = str(node_id)
+        try:
+            if node_id in self.list_connections[self.current_node]:
+                if self.current_node in self.list_connections[node_id]:
+                    self.list_connections[node_id].remove(self.current_node)
+                    self.list_connections[self.current_node].remove(node_id)
+                    self.list_connect_points[node_id] += 1
+                    self.list_connect_points[self.current_node] += 1
+        except KeyError:
+            pass
