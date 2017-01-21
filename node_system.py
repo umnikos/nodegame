@@ -1,12 +1,12 @@
 
 class Nodes:
-    list_connect_points = {}
     current_node = '00'
 
-    def __init__(self, connections, names, content):
+    def __init__(self, connections, names, content, connect_points):
         self.list_connections = connections
         self.list_names = names
         self.list_content = content
+        self.list_connect_points = connect_points
 
     def print_info(self, node_id):
         if node_id == 'current':
@@ -14,9 +14,9 @@ class Nodes:
         node_id = str(node_id)
         print('Node %s:\n' % node_id)
         try:
-            print('Connection points: %s' % self.list_connect_points[node_id])
+            print('Open ports: %s' % self.list_connect_points[node_id])
         except KeyError:
-            print('Connection points: 0')
+            print('Open ports: 0')
         print('Name: %s' % self.list_names[node_id])
         print('Content:\n')
         print(self.list_content[node_id])

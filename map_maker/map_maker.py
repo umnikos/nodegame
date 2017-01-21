@@ -21,6 +21,9 @@ for i in nodes:
             connections[i].add(Uinput)
         except KeyError:
             connections[i] = {Uinput}
+connect_points = {}
+for i in nodes:
+    connect_points[i] = int(input('Open ports on node %s: ' % i))
 names = {}
 for i in nodes:
     names[i] = input('Enter the name of node %s[1]: ' % i)
@@ -40,9 +43,10 @@ input('Press enter to make the map into a file.')
 file = open(map_name, 'w')
 file.write(end_node + '\n')
 file.write(length(connections))
-file.write(str(connections))
+file.write(str(connections)+'\n')
 file.write(length(names))
-file.write(str(names))
+file.write(str(names)+'\n')
 file.write(length(content))
-file.write(str(content))
-"everything to file"
+file.write(str(content)+'\n')
+file.write(length(connect_points))
+file.write(str(connect_points)+'\n')

@@ -15,7 +15,10 @@ try:
     file.read(1)
     length = int(file.read(5))
     content = eval(file.read(length))
-    loaded_map = node_system.Nodes(connections, names, content)
+    file.read(1)
+    length = int(file.read(5))
+    connect_points = eval(file.read(length))
+    loaded_map = node_system.Nodes(connections, names, content, connect_points)
     last_command = '>>%s\n\n' % file_name
     while True:
         os.system('cls')
