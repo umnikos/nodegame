@@ -1,4 +1,5 @@
-12
-00048{'00': {'10'}, '10': {'00', '11'}, '11': {'10'}}
-00056{'00': 'start', '10': 'bridge', '11': '12', '12': 'end'}
-00222{'00': 'Welcome to the node system!\nBelow this message is the list\nof nodes this node is linked to.\nIn order to connect to a node\nfrom the list, just type its id (both digits)', '10': 'bridge', '11': '12', '12': 'end'}
+92
+00076{'22': {'12'}, '11': {'10'}, '10': {'11', '00'}, '00': {'10'}, '12': {'22'}}
+00088{'22': 'notes', '00': 'start', '11': '???', '10': 'bridge', '12': 'midway', '92': 'end'}
+01126{'22': "1. You can't link two nodes if one of the nodes doesn't\nhave an open port.\n2. For two nodes to be compadible at least one of the\ntwo digits of their ids should match (node 13 can be\nlinked with node 23 but not with node 32)", '00': 'Welcome to the node system!\nBelow this message is the list of nodes this node\nis linked to. In order to connect to a node from\nthe list, just type its id (both digits)', '11': 'The node you are trying to get to has the id 12', '10': 'You can unlink nodes too! To unlink two nodes just\nbe on one of the nodes and type "unlink id" where "id"\nis the id of the other node. Unlinking two nodes will\nleave both nodes an open port. This will allow the nodes\nlink to another node with an open port using "link id"', '12': 'Awesome! The end node has the id 92 but before you go\nread the notes node', '92': 'You did it.\nYou finished the tutorial.\nYou are now equipped to face more difficult node systems.\nOnes that actually have a story in them\nOnes that will actually be a challenge\nYou should find them and uncover their secrets\nGo mighty warrior\nWe all know you can do it'}
+00054{'22': 0, '00': 0, '11': 0, '10': 0, '12': 1, '92': 1}
