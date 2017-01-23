@@ -2,8 +2,11 @@ import time
 import os
 import node_system
 
+clearing = False
 try:
-    file_name = input('Enter name of file map(including the extension):')
+    file_name = input('Enter name of file map:')
+    if '.' not in file_name:
+        file_name += '.txt'
     file = open(file_name, 'r')
     end_node = file.read(2)
     file.read(1)
@@ -24,9 +27,12 @@ try:
         connections[end_node] = set()
     loaded_map = node_system.Nodes(connections, names, content, connect_points)
     last_command = '>>%s\n\n' % file_name
-    while True:
+    if not clearing:
         os.system('cls')
-        print(last_command, end='')
+    while True:
+        if clearing:
+            os.system('cls')
+            print(last_command, end='')
         loaded_map.print_info('current')
         command = input('>>')
         last_command = ('>>%s\n\n' % command)

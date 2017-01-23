@@ -1,3 +1,5 @@
+import time
+
 
 class Nodes:
     current_node = '00'
@@ -8,25 +10,36 @@ class Nodes:
         self.list_content = content
         self.list_connect_points = connect_points
 
-    def print_info(self, node_id):
+    def print_info(self, node_id, sleep_for=0.1):
+        time.sleep(sleep_for)
         if node_id == 'current':
             node_id = self.current_node
         node_id = str(node_id)
         print('Node %s:\n' % node_id)
+        time.sleep(sleep_for)
         try:
             print('Open ports: %s' % self.list_connect_points[node_id])
         except KeyError:
             print('Open ports: 0')
+        time.sleep(sleep_for)
         print('Name: %s' % self.list_names[node_id])
+        time.sleep(sleep_for)
         print('Content:\n')
-        print(self.list_content[node_id])
+        time.sleep(sleep_for)
+        content_split = self.list_content[node_id].split('\n')
+        for i in content_split:
+            print(i)
+            time.sleep(sleep_for)
         print('\nLinked nodes:\n')
+        time.sleep(sleep_for)
         try:
             for i in self.list_connections[node_id]:
                 print('%s : %s' % (str(i), str(self.list_names[i])))
+                time.sleep(sleep_for)
         except KeyError:
             print('Something went wrong on the map makers side...')
         print('')
+        time.sleep(sleep_for)
 
     def connect(self, node_id):
         try:
