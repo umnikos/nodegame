@@ -1,5 +1,5 @@
 # nodegame
 a command prompt game about nodes
 
-This project is dead and will probably never get updated.
-If you still want to try out the code, just download it and run main.py
+One of my earlier projects that I never finished and don't think of finishing.
+Enjoy :)
